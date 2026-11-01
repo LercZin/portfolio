@@ -2,7 +2,7 @@
   "schemaVersion": "1.0",
   "updatedAt": "2026-11-01",
   "name": "Lucas Emanuel Ramos Carvalho",
-  "headline": "Software Developer — Business Systems, Web Applications & Integrations",
+  "headline": "Software Developer — Business Systems, Integrations & Infrastructure",
   "email": "lercsz1472@gmail.com",
   "location": {
     "city": "São Luís",
@@ -60,12 +60,17 @@
         "REST APIs",
         "MySQL",
         "authorization",
-        "database transactions"
+        "database transactions",
+        "Python",
+        "FastAPI",
+        "Go"
       ],
       "projects": [
         "pinheiro-moveis",
         "viure",
-        "retail-operations-demo"
+        "retail-operations-demo",
+        "unibot",
+        "postgres-outbox-lab"
       ]
     },
     {
@@ -108,7 +113,10 @@
         "pinheiro-moveis",
         "viure",
         "unibot",
-        "retail-operations-demo"
+        "retail-operations-demo",
+        "postgres-outbox-lab",
+        "pathfinding-lab",
+        "data-reconciliation-lab"
       ]
     },
     {
@@ -142,12 +150,128 @@
         "httptest"
       ],
       "projects": [
-        "retail-operations-demo"
+        "retail-operations-demo",
+        "postgres-outbox-lab"
       ],
       "evidence": "public_code_and_automated_tests"
+    },
+    {
+      "area": "data",
+      "items": [
+        "PostgreSQL",
+        "pgx",
+        "MySQL",
+        "SQLite",
+        "SQL"
+      ],
+      "projects": [
+        "postgres-outbox-lab",
+        "data-reconciliation-lab"
+      ],
+      "privateSourceEvidence": {
+        "SQLAlchemy": "Local operations/analytics application, listed in reviewedAdditionalWork; source review only."
+      }
+    },
+    {
+      "area": "algorithms",
+      "items": [
+        "A*",
+        "Dijkstra",
+        "weighted graphs",
+        "deterministic search"
+      ],
+      "projects": [
+        "pathfinding-lab"
+      ]
     }
   ],
   "projects": [
+    {
+      "id": "postgres-outbox-lab",
+      "name": "PostgreSQL Outbox Lab",
+      "participation": "portfolio_reference_implementation",
+      "created": "2026-11",
+      "sourceVisibility": "public",
+      "data": "fictional",
+      "repository": "https://github.com/LercZin/postgres-outbox-lab",
+      "technologies": [
+        "Go",
+        "pgx",
+        "PostgreSQL",
+        "HTTP"
+      ],
+      "domains": [
+        "transactional outbox",
+        "concurrent workers",
+        "idempotency",
+        "retry"
+      ],
+      "verification": {
+        "date": "2026-11-01",
+        "commit": "7eb1676c1761bf7b16477f9b4df6b74c4bcda2d1",
+        "ci": "https://github.com/LercZin/postgres-outbox-lab/actions/runs/41315605455",
+        "result": "success",
+        "checks": "13 PostgreSQL integration tests and 9 unit tests",
+        "scope": "PostgreSQL 18, Go race detector, real HTTP/database retry and CLI scenario."
+      }
+    },
+    {
+      "id": "pathfinding-lab",
+      "name": "Pathfinding Lab",
+      "participation": "portfolio_reference_implementation",
+      "created": "2026-11",
+      "sourceVisibility": "public",
+      "data": "fictional",
+      "repository": "https://github.com/LercZin/pathfinding-lab",
+      "technologies": [
+        "TypeScript",
+        "Vite",
+        "browser APIs"
+      ],
+      "domains": [
+        "A*",
+        "Dijkstra",
+        "weighted graphs",
+        "interactive visualization"
+      ],
+      "verification": {
+        "date": "2026-11-01",
+        "commit": "016223aebbbf928ab7a1dbf0a32bff61b3495cb1",
+        "ci": "https://github.com/LercZin/pathfinding-lab/actions/runs/41315465256",
+        "result": "success",
+        "checks": "42 tests, including A*/Dijkstra agreement on 48 seeded maps",
+        "scope": "Core/lifecycle tests, typecheck, lint, formatting and production build; actual Edge walkthrough recorded in docs/verification.md."
+      },
+      "demonstration": "https://lerczin.github.io/pathfinding-lab/"
+    },
+    {
+      "id": "data-reconciliation-lab",
+      "name": "Data Reconciliation Lab",
+      "participation": "portfolio_reference_implementation",
+      "created": "2026-11",
+      "sourceVisibility": "public",
+      "data": "fictional",
+      "repository": "https://github.com/LercZin/data-reconciliation-lab",
+      "technologies": [
+        "Python",
+        "SQLite",
+        "SQL"
+      ],
+      "domains": [
+        "data quality",
+        "CSV ingestion",
+        "quarantine",
+        "reconciliation"
+      ],
+      "verification": {
+        "date": "2026-11-01",
+        "commit": "03bc5cf6bd0deeb63785b9f3ec5a2975efa0014f",
+        "ci": "https://github.com/LercZin/data-reconciliation-lab/actions/runs/41315009016",
+        "result": "success",
+        "checks": "27 tests on Python 3.13 and 3.14",
+        "scope": "Real CLI subprocesses and disposable SQLite databases; deterministic fictional fixtures."
+      }
+    },
     {
       "id": "retail-operations-demo",
       "name": "Retail Operations Demo",
@@ -249,5 +373,41 @@
     "online sales",
     "marketing management"
   ],
-  "evidenceGuide": "https://github.com/LercZin/portfolio/blob/main/docs/engineering-evidence.md"
+  "evidenceGuide": "https://github.com/LercZin/portfolio/blob/main/docs/engineering-evidence.md",
+  "engineeringMap": "https://github.com/LercZin/portfolio/blob/main/docs/engineering-map.md",
+  "reviewedAdditionalWork": [
+    {
+      "project": "Local operations/analytics application",
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "SQLAlchemy",
+        "PostgreSQL",
+        "React",
+        "TypeScript",
+        "Ollama"
+      ],
+      "scope": "Source review: synchronization, account-scoped records, bounded local inference; no remote API or model executed."
+    },
+    {
+      "project": "SistemaFinanceiro",
+      "technologies": [
+        "PHP",
+        "Laravel",
+        "React",
+        "TypeScript",
+        "MySQL",
+        "Brick Math"
+      ],
+      "scope": "Source review: exact decimal state, workspace authorization and idempotent journal posting; private tests not executed."
+    },
+    {
+      "project": "Emberfall offline prototype",
+      "technologies": [
+        "Godot",
+        "GDScript"
+      ],
+      "scope": "Source review: cardinal pathfinding, versioned saves and compensated transfers; multiplayer remains planned."
+    }
+  ]
 }

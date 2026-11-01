@@ -1,7 +1,8 @@
 # Lucas Emanuel Ramos Carvalho · Portafolio de software
 
 **Desarrollo full stack, sistemas de gestión e integraciones**  
-PHP / Laravel · React / TypeScript · Next.js · MySQL · APIs REST
+PHP / Laravel · Python / FastAPI · Go · React / TypeScript  
+PostgreSQL · MySQL · APIs REST · Linux
 
 Desarrollo aplicaciones que conectan **ventas, inventario, pagos y operaciones de entrega**. Mi trabajo abarca requisitos, interfaces, backend, bases de datos, integraciones y despliegue. Mi experiencia práctica en ventas, montaje de muebles y marketing me ayuda a comprender las necesidades del negocio y de sus usuarios.
 
@@ -18,13 +19,23 @@ Desarrollo aplicaciones que conectan **ventas, inventario, pagos y operaciones d
 
 Pinheiro Móveis y Viure comenzaron en 2022 y han seguido evolucionando. El código comercial permanece privado. Implementé toda la aplicación UniBot dentro de un equipo académico; se conservan los créditos de sus tres integrantes. El adaptador Go simula entrada de un lector; no se afirma validación de hardware físico.
 
+## Laboratorios de ingeniería
+
+Tres referencias ejecutables creadas en noviembre de 2026 con datos ficticios:
+
+- [**PostgreSQL Outbox Lab**](https://github.com/LercZin/postgres-outbox-lab): Go/pgx, transacciones, workers concurrentes, reintentos y entregas duplicadas.
+- [**Pathfinding Lab**](https://github.com/LercZin/pathfinding-lab): TypeScript, A*/Dijkstra, costes de terreno y visualización interactiva.
+- [**Data Reconciliation Lab**](https://github.com/LercZin/data-reconciliation-lab): Python/SQL, validación CSV, cuarentena, importación idempotente e informes de conciliación.
+
+El [mapa técnico](docs/engineering-map.md) documenta ejemplos revisados de PostgreSQL/SQLAlchemy, IA local, sistemas financieros, Godot y despliegue Linux. Cada repositorio público contiene instrucciones y alcance de verificación.
+
 ## Competencias
 
-- Backend con PHP/Laravel, APIs REST, MySQL, validación, autorización y transacciones.
+- Backend con PHP/Laravel, Python/FastAPI y Go; APIs REST, PostgreSQL/MySQL, autorización y transacciones.
 - Frontend con React, TypeScript, Next.js, Livewire, HTML y CSS.
 - Integraciones de pagos y envíos, con procesamiento idempotente de webhooks.
 - Pruebas con PHPUnit, Playwright, pytest y JavaScript según el proyecto.
-- Git, entornos VPS Linux, despliegue e integración de hardware y software. Adaptador público en Go para consultar inventario en la demostración.
+- Git, entornos VPS Linux y despliegue. Experiencia declarada en integración de hardware y software. Adaptador público en Go para consultar inventario en la demostración.
 
 La [guía de evidencia](docs/engineering-evidence.md) permite revisar ejemplos concretos. UniBot dispone de **75 pruebas Python y 11 JavaScript** ejecutadas en CI; estas pruebas no equivalen a una certificación de producción ni a pruebas completas de integración.
 

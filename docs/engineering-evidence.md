@@ -72,6 +72,18 @@ Created in November 2026 as a runnable portfolio reference with fictional stores
 
 The reader accepts simulated keyboard-style scans through stdin. No physical scanner, serial connection, device driver or hardware model was validated.
 
+## Additional public engineering labs
+
+Created in November 2026 with fictional data. These runs verify the linked source revisions.
+
+| Project | Executed checks | Passing run and revision |
+| --- | --- | --- |
+| [data-reconciliation-lab](https://github.com/LercZin/data-reconciliation-lab) | 27 tests on Python 3.13 and 3.14 | [CI](https://github.com/LercZin/data-reconciliation-lab/actions/runs/41315009016) · `03bc5cf6bd0d` |
+| [pathfinding-lab](https://github.com/LercZin/pathfinding-lab) | 42 tests, including A*/Dijkstra agreement on 48 seeded maps | [CI](https://github.com/LercZin/pathfinding-lab/actions/runs/41315465256) · `016223aebbbf` |
+| [postgres-outbox-lab](https://github.com/LercZin/postgres-outbox-lab) | 13 PostgreSQL integration tests and 9 unit tests | [CI](https://github.com/LercZin/postgres-outbox-lab/actions/runs/41315605455) · `7eb1676c1761` |
+
+The outbox run uses an actual PostgreSQL service and the Go race detector. The reconciliation matrix runs both Python versions with disposable SQLite databases. Pathfinding includes a separately recorded local Edge walkthrough; its unit suite does not automate browser accessibility. [Live pathfinding demonstration](https://lerczin.github.io/pathfinding-lab/) · [Broader engineering map](engineering-map.md).
+
 ## Additional experience
 
 Lucas has reported broader hardware/software integration experience. The new Go reader provides inspectable Go code and automated checks; historical hardware deployments still lack a detailed verified case study and are not asserted here.
