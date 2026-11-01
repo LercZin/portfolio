@@ -49,6 +49,14 @@ The interface of this project uses Laravel's server-driven stack. React and Next
 
 **Business rules should be testable.** Laravel services, request validation and authorization policies separate business behavior from screen rendering. The repository includes tests for store isolation and sales-related behavior.
 
+### Inventory counts: protect the value being reconciled
+
+An inventory count can overlap with another stock change. Reading a balance before acquiring its lock would allow a delta to be calculated from an outdated value. In the reviewed `StockService::count()` implementation, the store filter is applied first and the stock row is read under `lockForUpdate()` inside a transaction. When an expected-count snapshot is supplied, a mismatch rejects the count rather than silently overwriting a newer balance.
+
+The complete count shares one transaction. This favors all-or-nothing reconciliation over committing each item separately: if a later item fails, earlier adjustments should not remain committed. The cost is a longer transaction and locks held across multiple items. The reviewed rollback test checks the observable result; this documentation does not assert a measured throughput or production incident history.
+
+**Example:** an operator begins counting two products. If processing the second product fails, the first product's balance must remain as it was before the operation. Foreign-store variations are excluded and reported rather than being reconciled into the active store.
+
 ```mermaid
 flowchart LR
   User[Store user] --> UI[Blade and Livewire interface]

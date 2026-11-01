@@ -11,11 +11,12 @@ Desarrollo aplicaciones que conectan **ventas, inventario, pagos y operaciones d
 
 | Proyecto | Mi participación | Tecnologías y problemas técnicos |
 | --- | --- | --- |
+| [**Retail Operations Demo**](https://github.com/LercZin/retail-operations-demo) | Demostración ejecutable creada en noviembre de 2026 con tiendas y cuentas ficticias. | Laravel, React/TypeScript, inventario transaccional, pedidos idempotentes y adaptador Go con pruebas y CI. |
 | [**Pinheiro Móveis**](case-studies/pinheiro-moveis.md) | Desarrollo independiente de un sistema de gestión para tiendas de muebles. | Laravel, Livewire, MySQL; aislamiento por tienda, inventario, pagos a plazos y entregas. |
 | [**Viure Maranhão**](case-studies/viure.md) | Desarrollo independiente de la experiencia de comercio, APIs e integraciones. | Next.js, React, TypeScript, Laravel; autenticación, webhooks de pago, recuperación del checkout y envíos. |
-| [**UniBot**](https://github.com/LercZin/unibot) | Participación en un proyecto académico colaborativo con código público. | Python, FastAPI, MySQL, JavaScript; clasificación de intenciones, servicios y pruebas automatizadas. |
+| [**UniBot**](https://github.com/LercZin/unibot) | Implementación completa de la aplicación dentro de un equipo académico; créditos conservados. | Python, FastAPI, MySQL, JavaScript; clasificación de intenciones, servicios y pruebas automatizadas. |
 
-Pinheiro Móveis y Viure comenzaron en 2022 y han seguido evolucionando. El código comercial permanece privado. UniBot conserva los créditos de sus tres integrantes.
+Pinheiro Móveis y Viure comenzaron en 2022 y han seguido evolucionando. El código comercial permanece privado. Implementé toda la aplicación UniBot dentro de un equipo académico; se conservan los créditos de sus tres integrantes. El adaptador Go simula entrada de un lector; no se afirma validación de hardware físico.
 
 ## Competencias
 
@@ -23,9 +24,9 @@ Pinheiro Móveis y Viure comenzaron en 2022 y han seguido evolucionando. El cód
 - Frontend con React, TypeScript, Next.js, Livewire, HTML y CSS.
 - Integraciones de pagos y envíos, con procesamiento idempotente de webhooks.
 - Pruebas con PHPUnit, Playwright, pytest y JavaScript según el proyecto.
-- Git, entornos VPS Linux, despliegue e integración de hardware y software. Experiencia adicional con Go.
+- Git, entornos VPS Linux, despliegue e integración de hardware y software. Adaptador público en Go para consultar inventario en la demostración.
 
-La [guía de evidencia](docs/engineering-evidence.md) permite revisar ejemplos concretos. UniBot dispone de **59 pruebas Python y 10 JavaScript** ejecutadas en CI; estas pruebas no equivalen a una certificación de producción ni a pruebas completas de integración.
+La [guía de evidencia](docs/engineering-evidence.md) permite revisar ejemplos concretos. UniBot dispone de **75 pruebas Python y 11 JavaScript** ejecutadas en CI; estas pruebas no equivalen a una certificación de producción ni a pruebas completas de integración.
 
 ## Disponibilidad
 

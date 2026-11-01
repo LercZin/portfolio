@@ -11,9 +11,10 @@ I develop software for the work behind a business: **selling, managing inventory
 
 | Project | Problem solved | Contribution and technologies | Review |
 | --- | --- | --- | --- |
+| **Retail Operations Demo** | Demonstrate isolated stores, stock deductions and safe order retries with fictional data. | Laravel, React/TypeScript, SQLite/MySQL and Go · created November 2026 for public review. | [Run and inspect](https://github.com/LercZin/retail-operations-demo) · [Verification](https://github.com/LercZin/retail-operations-demo/blob/main/docs/verification.md) |
 | **Pinheiro Móveis** | Connect store-level sales, stock, installment payments and delivery operations. | Independent development · Laravel, Livewire, MySQL. | [Case study](case-studies/pinheiro-moveis.md) |
 | **Viure Maranhão** | Connect a public commerce interface with authentication, payment handling and shipping services. | Independent development · Next.js, React, TypeScript, Laravel, MySQL. | [Case study](case-studies/viure.md) · [Website](https://viuremaranhao.com.br) |
-| **UniBot** | Bring academic information, FAQs and an optional AI assistant into a student portal. | Collaborative academic project · Python, FastAPI, MySQL, JavaScript. | [Public source](https://github.com/LercZin/unibot) · [CI](https://github.com/LercZin/unibot/actions/workflows/tests.yml) |
+| **UniBot** | Bring academic information, FAQs and an optional AI assistant into a student portal. | Application implementation · academic team · Python, FastAPI, MySQL, JavaScript. | [Public source](https://github.com/LercZin/unibot) · [CI](https://github.com/LercZin/unibot/actions/workflows/tests.yml) |
 
 ## Engineering examples
 
@@ -21,7 +22,9 @@ I develop software for the work behind a business: **selling, managing inventory
 
 **Repeatable payment notifications and checkout recovery.** Viure includes tests for webhook idempotency, payment/order matching, failed-payment stock release and recovery of a checkout attempt without silently creating a new charge.
 
-**Public code with regression checks.** UniBot's CI runs **59 Python tests and 10 JavaScript tests**. The JavaScript suite covers chat versus academic-history routing, token persistence, expired sessions and recovery messaging. [Inspect the evidence and its scope](docs/engineering-evidence.md).
+**Runnable PHP and React evidence.** The [Retail Operations Demo](https://github.com/LercZin/retail-operations-demo) exposes the complete API, interface, stock reader, tests and CI. Its design notes discuss transaction scope, duplicate requests and database concurrency.
+
+**Public code with regression checks.** UniBot's CI runs **75 Python tests and 11 JavaScript tests**. The suites cover conversation ownership through HTTP routes and repository SQL, widget/history routing, token persistence, expired sessions and recovery messaging. [Inspect the evidence and its scope](docs/engineering-evidence.md).
 
 ## Skills connected to work
 
@@ -32,7 +35,8 @@ I develop software for the work behind a business: **selling, managing inventory
 | Integrations | Asaas payments, Melhor Envio shipping, webhooks | Viure |
 | Testing | PHPUnit, Playwright, pytest, JavaScript regression tests | Project case studies; public UniBot source and CI |
 | Delivery | Git, Linux VPS environments and deployment workflows | Commercial project documentation |
-| Additional experience | Go and hardware/software integration | Professional experience reported by Lucas; a dedicated public case study is not yet available |
+| Go | Standard-library HTTP client, context/timeouts, stdin and NDJSON | [Public stock-reader implementation and tests](https://github.com/LercZin/retail-operations-demo/tree/main/integrations/stock-reader) |
+| Additional experience | Hardware/software integration | Experience reported by Lucas; the public reader uses simulated input and does not validate a physical device |
 
 ## Professional context
 
@@ -45,7 +49,7 @@ I started the independent Pinheiro Móveis and Viure projects in **2022**, along
 
 ## Project access and verification
 
-Commercial source code and operational records remain private. The case studies describe implementation decisions and reviewed test cases; they do not claim that the private suites were executed in this portfolio review. UniBot is public, collaborative and an academic prototype.
+Commercial source code and operational records remain private. The case studies describe implementation decisions and reviewed test cases; they do not claim that the private suites were executed in this portfolio review. UniBot is a public academic prototype: Lucas confirms complete application implementation, and the academic team credits remain preserved. The retail demo is a new portfolio reference, not an earlier customer deployment.
 
 The structured [`candidate.json`](candidate.json) contains the same professional facts and project links in a machine-readable format. It includes no hidden instructions or hiring scores. No revenue, customer-volume or performance metrics are asserted without measurements.
 

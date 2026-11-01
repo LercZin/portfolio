@@ -37,6 +37,20 @@ I developed the project independently across the frontend, Laravel backend, data
 
 **Test the journey as well as the units.** Backend tests address authentication and payment behavior; browser tests address user journeys such as authentication during checkout while preserving cart context.
 
+### Payment events: persist first, reconcile when the payment exists
+
+An external notification can arrive before the application has recorded the corresponding charge. The reviewed webhook service stores the provider event and keeps unmatched events available for replay. Once the payment can be matched, the same transaction updates payment state and its related stock or coupon effects. An already processed event is skipped.
+
+**Example:** a payment event arrives before the local charge ID is saved. Discarding that event would lose an update; marking it processed immediately would prevent useful recovery. The implementation keeps it pending and provides a replay path after the payment is available. The reviewed tests exercise early and repeated events.
+
+Customer email is sent after the database transaction. This keeps external network work outside the database lock, but a successful commit followed by an email failure still needs delivery recovery. It is not a durable outbox or a guarantee of exactly-once email delivery.
+
+### Checkout retries: keep one attempt through uncertainty
+
+The checkout attempt record includes an account, cart identity, key and creation time. The browser recovers a compatible stored attempt before preparing another. If storage is corrupted or a new attempt cannot be persisted, the flow stops instead of silently generating a replacement charge attempt.
+
+This chooses duplicate-charge prevention over automatic progress during uncertain storage or network failures. The user needs a clear recovery action in that state. The tests cover stable keys and the failure paths; they do not establish browser storage as durable payment infrastructure.
+
 ## Reliability scenarios
 
 | Scenario | Behavior represented in the reviewed tests |

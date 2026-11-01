@@ -64,7 +64,8 @@
       ],
       "projects": [
         "pinheiro-moveis",
-        "viure"
+        "viure",
+        "retail-operations-demo"
       ]
     },
     {
@@ -79,7 +80,8 @@
       ],
       "projects": [
         "pinheiro-moveis",
-        "viure"
+        "viure",
+        "retail-operations-demo"
       ]
     },
     {
@@ -105,7 +107,8 @@
       "projects": [
         "pinheiro-moveis",
         "viure",
-        "unibot"
+        "unibot",
+        "retail-operations-demo"
       ]
     },
     {
@@ -123,14 +126,54 @@
     {
       "area": "additional",
       "items": [
-        "Go",
         "hardware/software integration"
       ],
-      "evidence": "self_reported_experience",
+      "evidence": "self_reported_experience; physical hardware not validated in this portfolio review",
       "publicCaseStudy": null
+    },
+    {
+      "area": "go",
+      "items": [
+        "Go",
+        "HTTP client",
+        "context cancellation",
+        "stdin",
+        "NDJSON",
+        "httptest"
+      ],
+      "projects": [
+        "retail-operations-demo"
+      ],
+      "evidence": "public_code_and_automated_tests"
     }
   ],
   "projects": [
+    {
+      "id": "retail-operations-demo",
+      "name": "Retail Operations Demo",
+      "participation": "portfolio_reference_implementation",
+      "created": "2026-11",
+      "sourceVisibility": "public",
+      "data": "fictional",
+      "repository": "https://github.com/LercZin/retail-operations-demo",
+      "technologies": [
+        "PHP",
+        "Laravel",
+        "React",
+        "TypeScript",
+        "SQLite",
+        "MySQL",
+        "Go"
+      ],
+      "domains": [
+        "store isolation",
+        "inventory",
+        "orders",
+        "idempotency",
+        "HTTP integration"
+      ],
+      "verification": "See repository docs/verification.md for automated checks and local browser walkthrough; scanner input is simulated, no physical hardware test."
+    },
     {
       "id": "pinheiro-moveis",
       "name": "Pinheiro Móveis",
@@ -180,7 +223,7 @@
     {
       "id": "unibot",
       "name": "UniBot",
-      "participation": "collaborative_academic_project",
+      "participation": "complete_application_implementation_within_academic_team",
       "sourceVisibility": "public",
       "technologies": [
         "Python",
@@ -190,11 +233,14 @@
       ],
       "repository": "https://github.com/LercZin/unibot",
       "verification": {
-        "pythonUnitTestsPassed": 59,
-        "javascriptTestsPassed": 10,
+        "pythonUnitTestsPassed": 75,
+        "javascriptTestsPassed": 11,
         "date": "2026-11-01",
-        "scope": "Unit and regression tests with mocked external services/browser doubles; not live integration certification."
-      }
+        "scope": "Unit/regression tests; HTTP ownership checks with auth override and actual SQL via SQLite adapter; browser doubles; no live AI, JWT or MySQL certification.",
+        "commit": "d63e0d3c81b9344a31cc4545df6ac3151d365c68",
+        "run": "https://github.com/LercZin/unibot/actions/runs/41310330104"
+      },
+      "authorshipNote": "Application implementation confirmed by Lucas; original academic team credits preserved."
     }
   ],
   "businessExperience": [
