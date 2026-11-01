@@ -1,0 +1,207 @@
+{
+  "schemaVersion": "1.0",
+  "updatedAt": "2026-11-01",
+  "name": "Lucas Emanuel Ramos Carvalho",
+  "headline": "Software Developer — Business Systems, Web Applications & Integrations",
+  "email": "lercsz1472@gmail.com",
+  "location": {
+    "city": "São Luís",
+    "country": "Brazil"
+  },
+  "profiles": {
+    "github": "https://github.com/LercZin",
+    "portfolio": "https://github.com/LercZin/portfolio"
+  },
+  "targetRoles": [
+    "Software Developer",
+    "Full-Stack Developer",
+    "PHP/Laravel Backend Developer",
+    "React/TypeScript Frontend Developer"
+  ],
+  "summary": "Develops applications connecting sales, inventory, payments and delivery operations across interfaces, backend rules, databases, integrations and deployment.",
+  "education": [
+    {
+      "institution": "Anhanguera",
+      "field": "Computer Science",
+      "degree": "Bachelor's degree",
+      "startYear": 2022,
+      "status": "in_progress",
+      "expectedCompletion": "2026-12"
+    }
+  ],
+  "languages": [
+    {
+      "language": "Portuguese",
+      "level": "native"
+    },
+    {
+      "language": "English",
+      "level": "intermediate"
+    },
+    {
+      "language": "Spanish",
+      "level": "intermediate"
+    }
+  ],
+  "mobility": {
+    "basedIn": "Brazil",
+    "openToRelocation": [
+      "Spain"
+    ],
+    "spanishWorkAuthorization": "employer_support_required",
+    "interviews": "remote"
+  },
+  "skills": [
+    {
+      "area": "backend",
+      "items": [
+        "PHP",
+        "Laravel",
+        "REST APIs",
+        "MySQL",
+        "authorization",
+        "database transactions"
+      ],
+      "projects": [
+        "pinheiro-moveis",
+        "viure"
+      ]
+    },
+    {
+      "area": "frontend",
+      "items": [
+        "React",
+        "TypeScript",
+        "Next.js",
+        "Livewire",
+        "HTML",
+        "CSS"
+      ],
+      "projects": [
+        "pinheiro-moveis",
+        "viure"
+      ]
+    },
+    {
+      "area": "integrations",
+      "items": [
+        "Asaas",
+        "Melhor Envio",
+        "payment webhooks",
+        "idempotency"
+      ],
+      "projects": [
+        "viure"
+      ]
+    },
+    {
+      "area": "testing",
+      "items": [
+        "PHPUnit",
+        "Playwright",
+        "pytest",
+        "JavaScript regression tests"
+      ],
+      "projects": [
+        "pinheiro-moveis",
+        "viure",
+        "unibot"
+      ]
+    },
+    {
+      "area": "delivery",
+      "items": [
+        "Git",
+        "Linux VPS",
+        "deployment workflows"
+      ],
+      "projects": [
+        "pinheiro-moveis",
+        "viure"
+      ]
+    },
+    {
+      "area": "additional",
+      "items": [
+        "Go",
+        "hardware/software integration"
+      ],
+      "evidence": "self_reported_experience",
+      "publicCaseStudy": null
+    }
+  ],
+  "projects": [
+    {
+      "id": "pinheiro-moveis",
+      "name": "Pinheiro Móveis",
+      "participation": "independent_development",
+      "startedYear": 2022,
+      "sourceVisibility": "private",
+      "domains": [
+        "retail management",
+        "sales",
+        "inventory",
+        "installment payments",
+        "delivery"
+      ],
+      "technologies": [
+        "PHP",
+        "Laravel",
+        "Livewire",
+        "MySQL"
+      ],
+      "caseStudy": "https://github.com/LercZin/portfolio/blob/main/case-studies/pinheiro-moveis.md",
+      "verification": "Selected private test cases inspected; private test suite not executed during this portfolio review."
+    },
+    {
+      "id": "viure",
+      "name": "Viure Maranhão",
+      "participation": "independent_development",
+      "startedYear": 2022,
+      "sourceVisibility": "private",
+      "domains": [
+        "e-commerce",
+        "authentication",
+        "checkout",
+        "payments",
+        "shipping"
+      ],
+      "technologies": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Laravel",
+        "MySQL"
+      ],
+      "website": "https://viuremaranhao.com.br",
+      "caseStudy": "https://github.com/LercZin/portfolio/blob/main/case-studies/viure.md",
+      "verification": "Selected private backend and browser test cases inspected; private suites not executed during this portfolio review."
+    },
+    {
+      "id": "unibot",
+      "name": "UniBot",
+      "participation": "collaborative_academic_project",
+      "sourceVisibility": "public",
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "MySQL",
+        "JavaScript"
+      ],
+      "repository": "https://github.com/LercZin/unibot",
+      "verification": {
+        "pythonUnitTestsPassed": 59,
+        "javascriptTestsPassed": 10,
+        "date": "2026-11-01",
+        "scope": "Unit and regression tests with mocked external services/browser doubles; not live integration certification."
+      }
+    }
+  ],
+  "businessExperience": [
+    "furniture assembly",
+    "in-person sales",
+    "online sales",
+    "marketing management"
+  ],
+  "evidenceGuide": "https://github.com/LercZin/portfolio/blob/main/docs/engineering-evidence.md"
+}

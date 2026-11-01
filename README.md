@@ -1,50 +1,52 @@
-# Business applications · Lucas Emanuel Ramos Carvalho
+# Lucas Emanuel Ramos Carvalho · Software Portfolio
 
-Selected technical case studies from independently developed business applications.
+**Full-stack applications, business systems and integrations**  
+PHP / Laravel · React / TypeScript · Next.js · MySQL · REST APIs
 
-I work across interfaces, APIs, databases and integrations, with a focus on keeping business rules consistent from the user action to the stored transaction.
+I develop software for the work behind a business: **selling, managing inventory, collecting payments and following through on deliveries**. My contribution covers requirements, interfaces, backend rules, databases, external integrations and deployment.
 
-My broader hands-on experience also includes Go, system deployment and hardware/software integration. The case studies below focus on projects whose implementation I can explain in detail.
+[Contact](mailto:lercsz1472@gmail.com) · [GitHub](https://github.com/LercZin) · [Español](README.es.md) · [Technical evidence](docs/engineering-evidence.md) · [Structured profile](candidate.json)
 
-## Projects
+## Start with these projects
 
-### Pinheiro Móveis · multi-store retail operations
+| Project | Problem solved | Contribution and technologies | Review |
+| --- | --- | --- | --- |
+| **Pinheiro Móveis** | Connect store-level sales, stock, installment payments and delivery operations. | Independent development · Laravel, Livewire, MySQL. | [Case study](case-studies/pinheiro-moveis.md) |
+| **Viure Maranhão** | Connect a public commerce interface with authentication, payment handling and shipping services. | Independent development · Next.js, React, TypeScript, Laravel, MySQL. | [Case study](case-studies/viure.md) · [Website](https://viuremaranhao.com.br) |
+| **UniBot** | Bring academic information, FAQs and an optional AI assistant into a student portal. | Collaborative academic project · Python, FastAPI, MySQL, JavaScript. | [Public source](https://github.com/LercZin/unibot) · [CI](https://github.com/LercZin/unibot/actions/workflows/tests.yml) |
 
-Sales, inventory, installment payments, deliveries and furniture assembly in a shared operational system. Built with PHP, Laravel, Livewire and MySQL.
+## Engineering examples
 
-[Read the case study](case-studies/pinheiro-moveis.md)
+**Store isolation and inventory integrity.** Pinheiro Móveis includes tests for cross-store access, forced store context on creation, inventory reconciliation and rollback when an operation fails.
 
-### Viure Maranhão · commerce and payment integrations
+**Repeatable payment notifications and checkout recovery.** Viure includes tests for webhook idempotency, payment/order matching, failed-payment stock release and recovery of a checkout attempt without silently creating a new charge.
 
-A Next.js, React and TypeScript frontend supported by Laravel APIs for identity, payments and integrations. Designed to keep private configuration and transaction rules on the server.
+**Public code with regression checks.** UniBot's CI runs **59 Python tests and 10 JavaScript tests**. The JavaScript suite covers chat versus academic-history routing, token persistence, expired sessions and recovery messaging. [Inspect the evidence and its scope](docs/engineering-evidence.md).
 
-[Read the case study](case-studies/viure.md) · [Public website](https://viuremaranhao.com.br)
+## Skills connected to work
 
-### UniBot · public academic source
+| Area | Technologies and practice | Evidence |
+| --- | --- | --- |
+| Backend | PHP, Laravel, REST APIs, MySQL, authorization and transactions | Pinheiro Móveis; Viure |
+| Frontend | React, TypeScript, Next.js, Livewire, HTML/CSS, API integration | Viure; Pinheiro Móveis |
+| Integrations | Asaas payments, Melhor Envio shipping, webhooks | Viure |
+| Testing | PHPUnit, Playwright, pytest, JavaScript regression tests | Project case studies; public UniBot source and CI |
+| Delivery | Git, Linux VPS environments and deployment workflows | Commercial project documentation |
+| Additional experience | Go and hardware/software integration | Professional experience reported by Lucas; a dedicated public case study is not yet available |
 
-A collaborative academic assistant with FastAPI, MySQL, a browser interface and optional AI integration. Its repository contains setup instructions, tests and contributor credits.
+## Professional context
 
-[Explore the source](https://github.com/LercZin/trabalho-ivone)
+I have practical experience in **furniture assembly, in-person and online sales, and marketing management**. This informs how I understand operational workflows and user needs.
 
-## How to review this portfolio
+I started the independent Pinheiro Móveis and Viure projects in **2022**, alongside my Computer Science studies at **Anhanguera**. Graduation is expected in **December 2026**.
 
-Each case study distinguishes the business problem, my contribution, the stack, technical decisions and verification limits. Private applications are documented as case studies rather than represented as open-source code.
+**Languages:** Portuguese native; English and Spanish intermediate.  
+**Location:** São Luís, Brazil. Open to relocation to Spain with the required employer-supported work authorization. Available for remote interviews and technical assessments.
 
-Useful interview topics include:
+## Project access and verification
 
-- Enforcing store boundaries and maintaining inventory consistency.
-- Separating a static frontend from authenticated APIs and payment processing.
-- Handling duplicate webhook delivery without repeating business effects.
-- Choosing unit, integration and browser tests for different risks.
-- Connecting sales and operational experience to software requirements.
+Commercial source code and operational records remain private. The case studies describe implementation decisions and reviewed test cases; they do not claim that the private suites were executed in this portfolio review. UniBot is public, collaborative and an academic prototype.
 
-No revenue figures, customer counts, performance benchmarks or coverage percentages are claimed without supporting measurements. Screenshots with customer information and production credentials are excluded.
+The structured [`candidate.json`](candidate.json) contains the same professional facts and project links in a machine-readable format. It includes no hidden instructions or hiring scores. No revenue, customer-volume or performance metrics are asserted without measurements.
 
-## Contact
-
-**Lucas Emanuel Ramos Carvalho** · São Luís, Brazil  
-[GitHub profile](https://github.com/LercZin) · [lercsz1472@gmail.com](mailto:lercsz1472@gmail.com)
-
-Portuguese native; English and Spanish intermediate. Computer Science degree at Anhanguera: expected completion December 2026.
-
-**Em português:** Este repositório apresenta estudos de caso dos meus projetos. O código dos sistemas comerciais permanece privado; o UniBot é um projeto acadêmico colaborativo com código público.
+**Contact:** [lercsz1472@gmail.com](mailto:lercsz1472@gmail.com)

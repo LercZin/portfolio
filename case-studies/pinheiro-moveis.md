@@ -31,6 +31,16 @@ The interface of this project uses Laravel's server-driven stack. React and Next
 - Installment-payment records and financial follow-up.
 - Delivery and furniture-assembly workflows.
 
+## Reliability scenarios
+
+| Scenario | Behavior represented in the reviewed tests |
+| --- | --- |
+| An operator requests another store's customer by ID | Store boundaries are enforced beyond the navigation menu. |
+| A stock count fails after some items were processed | The operation rolls back instead of leaving a partially reconciled inventory. |
+| A payment notification is delivered twice | The same payment does not create duplicate installment allocations or receipts. |
+
+[Review the exact test files and verification scope](../docs/engineering-evidence.md#private-implementation-review-pinheiro-móveis).
+
 ## Technical decisions
 
 **Store boundaries are a server-side concern.** The application uses store scoping and authorization rules rather than relying on menu visibility to protect operational records.

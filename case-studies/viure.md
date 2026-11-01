@@ -4,6 +4,10 @@
 
 [Portfolio](../README.md) · [Public website](https://viuremaranhao.com.br)
 
+![Public guided product-selection interface developed for Viure Maranhão](../assets/viure-public-experience.png)
+
+Public interface captured on November 1, 2026. Account and cart details are excluded from the capture.
+
 ## Business problem
 
 A commerce experience needs both a responsive public interface and reliable server-side behavior for identity, checkout, payments and external integrations. Marketing presentation and transactional rules have different responsibilities.
@@ -32,6 +36,17 @@ I developed the project independently across the frontend, Laravel backend, data
 **Treat webhook delivery as repeatable.** Payment integrations must tolerate repeated notifications. Idempotent processing avoids applying the same business effect more than once.
 
 **Test the journey as well as the units.** Backend tests address authentication and payment behavior; browser tests address user journeys such as authentication during checkout while preserving cart context.
+
+## Reliability scenarios
+
+| Scenario | Behavior represented in the reviewed tests |
+| --- | --- |
+| Payment events arrive repeatedly or before a charge ID is stored | Processing handles duplicates and tests the relationship between provider IDs and order references. |
+| A visitor signs in while buying | Browser tests check cart, coupon and navigation context through the transition. |
+| Checkout storage is corrupted or a recovery request fails | Tests check that the application does not silently rotate the attempt key and initiate a new charge. |
+| A payment fails after stock was reserved | Tests check that reserved inventory is released once. |
+
+[Review the exact test files and verification scope](../docs/engineering-evidence.md#private-implementation-review-viure-maranhão).
 
 ```mermaid
 flowchart LR
