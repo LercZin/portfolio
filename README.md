@@ -4,6 +4,8 @@ Selected technical case studies from independently developed business applicatio
 
 I work across interfaces, APIs, databases and integrations, with a focus on keeping business rules consistent from the user action to the stored transaction.
 
+My broader hands-on experience also includes Go, system deployment and hardware/software integration. The case studies below focus on projects whose implementation I can explain in detail.
+
 ## Projects
 
 ### Pinheiro Móveis · multi-store retail operations
