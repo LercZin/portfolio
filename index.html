@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lucas Carvalho · Full-stack developer</title>
+<meta name="description" content="Full-stack developer building business systems: sales, stock, payments and delivery. PHP/Laravel, Python/FastAPI, Go, React/TypeScript, PostgreSQL.">
+<meta property="og:title" content="Lucas Carvalho · Full-stack developer">
+<meta property="og:description" content="Business systems, integrations and data. PHP/Laravel, Python/FastAPI, Go, React/TypeScript, PostgreSQL.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f5f4a'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3ELC%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#f7f6f2;--surface:#fff;--text:#1c1d1f;--muted:#5d6168;--line:#e2e0d8;--accent:#1f5f4a;--accent-soft:#e3efe9;--tag:#f0eee7;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121416;--surface:#1a1d20;--text:#e9e9e6;--muted:#a3a7ad;--line:#2b2f33;--accent:#6fc3a0;--accent-soft:#1d3029;--tag:#23272b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121416;--surface:#1a1d20;--text:#e9e9e6;--muted:#a3a7ad;--line:#2b2f33;--accent:#6fc3a0;--accent-soft:#1d3029;--tag:#23272b;color-scheme:dark}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+html[data-lang="en"] [lang="es"],html[data-lang="es"] [lang="en"]{display:none}
+header.top{display:flex;justify-content:space-between;align-items:center;padding:20px 0;gap:12px}
+.brand{font-weight:700;letter-spacing:-.01em;color:var(--text);text-decoration:none}
+.controls{display:flex;gap:8px}
+.controls button{font:inherit;font-size:14px;background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 10px;cursor:pointer;min-height:36px}
+.controls button[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+.hero{padding:40px 0 32px}
+.hero h1{font-size:clamp(30px,5.5vw,48px);line-height:1.12;letter-spacing:-.02em;margin:0 0 16px;max-width:20ch}
+.hero p{font-size:18px;color:var(--muted);max-width:62ch;margin:0 0 24px}
+.stack{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 28px;padding:0;list-style:none}
+.stack li,.tags span{background:var(--tag);border-radius:999px;padding:3px 10px;font-size:13px;color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;min-height:42px;padding:0 16px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);text-decoration:none;font-weight:600;font-size:15px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+section{padding:32px 0;border-top:1px solid var(--line)}
+h2{font-size:22px;letter-spacing:-.01em;margin:0 0 6px}
+.lead{color:var(--muted);margin:0 0 20px;max-width:66ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.card h3{margin:0;font-size:17px}
+.card .role{font-size:13px;color:var(--accent);font-weight:600;margin:-6px 0 0}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.links{margin-top:auto;display:flex;flex-wrap:wrap;gap:14px;font-size:14px;font-weight:600}
+.badge{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;padding:2px 8px;border-radius:6px;background:var(--accent-soft);color:var(--accent);align-self:flex-start}
+figure{margin:0 0 20px}
+figure img{width:100%;height:auto;border-radius:14px;border:1px solid var(--line);display:block}
+figcaption{font-size:13px;color:var(--muted);margin-top:8px}
+.problems{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.problems li{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:14px 16px}
+.problems strong{display:block;margin-bottom:2px}
+.problems span{color:var(--muted);font-size:15px}
+.skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.skills div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.skills h3{margin:0 0 4px;font-size:15px}
+.skills p{margin:0;color:var(--muted);font-size:14px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:16px}
+.facts div{font-size:15px}
+.facts b{display:block;font-size:13px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:14px}
+footer p{margin:0 0 8px;max-width:70ch}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="#">Lucas Carvalho</a>
+  <div class="controls">
+    <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+    <button type="button" data-set-lang="es" aria-pressed="false">ES</button>
+    <button type="button" id="theme" aria-label="Toggle dark mode">◐</button>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <h1 lang="en">I build the software behind a business.</h1>
+  <h1 lang="es">Desarrollo el software que sostiene un negocio.</h1>
+  <p lang="en">Full-stack developer. Selling, managing stock, collecting payments and following through on deliveries: I take a feature from the people who use it to the screen, the backend rules, the database, the integrations and the deployment.</p>
+  <p lang="es">Desarrollador full stack. Vender, controlar el inventario, cobrar y cumplir con las entregas: llevo una funcionalidad desde quien la usa hasta la pantalla, las reglas del backend, la base de datos, las integraciones y el despliegue.</p>
+  <ul class="stack">
+    <li>PHP / Laravel</li><li>Python / FastAPI</li><li>Go</li><li>React / TypeScript</li><li>PostgreSQL</li><li>MySQL</li><li>Docker</li><li>Linux</li>
+  </ul>
+  <div class="cta">
+    <a class="btn primary" href="mailto:lercsz1472@gmail.com"><span lang="en">Email me</span><span lang="es">Escríbeme</span></a>
+    <a class="btn" href="https://github.com/LercZin">GitHub</a>
+    <a class="btn" href="https://github.com/LercZin/portfolio/blob/main/candidate.json"><span lang="en">Structured profile</span><span lang="es">Perfil estructurado</span></a>
+  </div>
+</div>
+
+<section id="projects">
+  <h2 lang="en">Projects</h2><h2 lang="es">Proyectos</h2>
+  <p class="lead" lang="en">Commercial projects are private, so their case studies explain the decisions and tests. Public repositories can be cloned and run.</p>
+  <p class="lead" lang="es">Los proyectos comerciales son privados: sus casos de estudio explican las decisiones y las pruebas. Los repositorios públicos se pueden clonar y ejecutar.</p>
+  <figure>
+    <img src="assets/viure-public-experience.png" alt="Viure Maranhão public product-selection interface" loading="lazy">
+    <figcaption lang="en">Viure Maranhão, public storefront.</figcaption>
+    <figcaption lang="es">Viure Maranhão, tienda pública.</figcaption>
+  </figure>
+  <div class="grid">
+    <article class="card">
+      <h3>Pinheiro Móveis</h3>
+      <p class="role" lang="en">Sole developer · since 2022</p><p class="role" lang="es">Único desarrollador · desde 2022</p>
+      <p lang="en">Runs a multi-store furniture retailer: sales, stock, installment payments, delivery and assembly.</p>
+      <p lang="es">Gestiona una cadena de tiendas de muebles: ventas, inventario, pagos a plazos, entrega y montaje.</p>
+      <div class="tags"><span>Laravel</span><span>Livewire</span><span>MySQL</span></div>
+      <div class="links"><a href="https://github.com/LercZin/portfolio/blob/main/case-studies/pinheiro-moveis.md"><span lang="en">Case study</span><span lang="es">Caso de estudio</span></a><a href="https://pinheiromoveis.com">Site</a></div>
+    </article>
+    <article class="card">
+      <h3>Viure Maranhão</h3>
+      <p class="role" lang="en">Sole developer · since 2022</p><p class="role" lang="es">Único desarrollador · desde 2022</p>
+      <p lang="en">Online store with sign-in, checkout, payment webhooks and shipping quotes.</p>
+      <p lang="es">Tienda online con acceso, checkout, webhooks de pago y cálculo de envíos.</p>
+      <div class="tags"><span>Next.js</span><span>React</span><span>TypeScript</span><span>Laravel</span></div>
+      <div class="links"><a href="https://github.com/LercZin/portfolio/blob/main/case-studies/viure.md"><span lang="en">Case study</span><span lang="es">Caso de estudio</span></a><a href="https://viuremaranhao.com.br">Site</a></div>
+    </article>
+    <article class="card">
+      <span class="badge" lang="en">In progress</span><span class="badge" lang="es">En curso</span>
+      <h3>Cérebro</h3>
+      <p class="role" lang="en">Lead developer · 2026</p><p class="role" lang="es">Desarrollador principal · 2026</p>
+      <p lang="en">Multi-tenant platform for AI-assisted customer service over WhatsApp, isolated per company with PostgreSQL row-level security.</p>
+      <p lang="es">Plataforma multiempresa de atención con IA por WhatsApp, aislada por empresa con row-level security de PostgreSQL.</p>
+      <div class="tags"><span>FastAPI</span><span>PostgreSQL</span><span>Redis</span><span>React</span></div>
+      <div class="links"><a href="https://github.com/LercZin/portfolio/blob/main/case-studies/cerebro.md"><span lang="en">Case study</span><span lang="es">Caso de estudio</span></a></div>
+    </article>
+    <article class="card">
+      <span class="badge" lang="en">Public code</span><span class="badge" lang="es">Código público</span>
+      <h3>Retail Operations Demo</h3>
+      <p lang="en">Runnable version of the retail problems above, with fictional stores: store isolation, stock under concurrency and safe order retries.</p>
+      <p lang="es">Versión ejecutable de los problemas de comercio, con tiendas ficticias: aislamiento, inventario con concurrencia y reintentos seguros.</p>
+      <div class="tags"><span>Laravel</span><span>React</span><span>Go</span><span>MySQL</span></div>
+      <div class="links"><a href="https://github.com/LercZin/retail-operations-demo"><span lang="en">Code</span><span lang="es">Código</span></a><a href="https://github.com/LercZin/retail-operations-demo/blob/main/docs/verification.md"><span lang="en">Verification</span><span lang="es">Verificación</span></a></div>
+    </article>
+    <article class="card">
+      <span class="badge" lang="en">Public code</span><span class="badge" lang="es">Código público</span>
+      <h3>UniBot</h3>
+      <p class="role" lang="en">Implemented the application · academic team</p><p class="role" lang="es">Implementé la aplicación · equipo académico</p>
+      <p lang="en">Student portal assistant with academic data, FAQs and an optional AI chat. 75 Python and 11 JavaScript tests in CI.</p>
+      <p lang="es">Asistente para un portal de estudiantes con datos académicos, preguntas frecuentes y chat con IA. 75 pruebas Python y 11 JavaScript en CI.</p>
+      <div class="tags"><span>FastAPI</span><span>MySQL</span><span>JavaScript</span></div>
+      <div class="links"><a href="https://github.com/LercZin/unibot"><span lang="en">Code</span><span lang="es">Código</span></a><a href="https://github.com/LercZin/unibot/actions/workflows/tests.yml">CI</a></div>
+    </article>
+  </div>
+</section>
+
+<section id="labs">
+  <h2 lang="en">Engineering labs</h2><h2 lang="es">Laboratorios de ingeniería</h2>
+  <p class="lead" lang="en">Small projects with fictional data, each about one problem that is easy to get wrong.</p>
+  <p class="lead" lang="es">Proyectos pequeños con datos ficticios, cada uno sobre un problema fácil de resolver mal.</p>
+  <div class="grid">
+    <article class="card">
+      <h3>PostgreSQL Outbox</h3>
+      <p lang="en">Go workers claiming jobs concurrently, surviving crashes and duplicate deliveries.</p>
+      <p lang="es">Workers en Go que reclaman tareas en paralelo y sobreviven a caídas y entregas duplicadas.</p>
+      <div class="tags"><span>Go</span><span>pgx</span><span>PostgreSQL</span></div>
+      <div class="links"><a href="https://github.com/LercZin/postgres-outbox-lab"><span lang="en">Code</span><span lang="es">Código</span></a></div>
+    </article>
+    <article class="card">
+      <h3>Pathfinding</h3>
+      <p lang="en">A* and Dijkstra on weighted grids, with step-by-step playback in the browser.</p>
+      <p lang="es">A* y Dijkstra sobre cuadrículas con pesos, con reproducción paso a paso en el navegador.</p>
+      <div class="tags"><span>TypeScript</span><span>Vite</span></div>
+      <div class="links"><a href="https://github.com/LercZin/pathfinding-lab"><span lang="en">Code</span><span lang="es">Código</span></a><a href="https://lerczin.github.io/pathfinding-lab/">Demo</a></div>
+    </article>
+    <article class="card">
+      <h3>Data Reconciliation</h3>
+      <p lang="en">Import that quarantines bad rows, can be re-run safely and explains every mismatch.</p>
+      <p lang="es">Importación que aísla las filas inválidas, se puede repetir sin riesgo y explica cada diferencia.</p>
+      <div class="tags"><span>Python</span><span>SQL</span></div>
+      <div class="links"><a href="https://github.com/LercZin/data-reconciliation-lab"><span lang="en">Code</span><span lang="es">Código</span></a></div>
+    </article>
+  </div>
+</section>
+
+<section id="problems">
+  <h2 lang="en">Problems I have solved</h2><h2 lang="es">Problemas que he resuelto</h2>
+  <ul class="problems">
+    <li lang="en"><strong>A store must never see another store's data.</strong><span>Store scope is enforced on the server, on every query and on creation, with tests that try to read another store's customer by ID.</span></li>
+    <li lang="es"><strong>Una tienda nunca debe ver los datos de otra.</strong><span>El ámbito de la tienda se aplica en el servidor, en cada consulta y al crear registros, con pruebas que intentan leer por ID un cliente de otra tienda.</span></li>
+    <li lang="en"><strong>A stock count that fails halfway must not leave half the stock adjusted.</strong><span>The whole count runs in one transaction with row locks, and is rejected if the balance changed since counting started.</span></li>
+    <li lang="es"><strong>Un recuento que falla a mitad no puede dejar medio inventario ajustado.</strong><span>Todo el recuento va en una transacción con bloqueo de filas y se rechaza si el saldo cambió desde que empezó.</span></li>
+    <li lang="en"><strong>Payment providers repeat notifications, sometimes before the charge exists.</strong><span>Each event is stored, applied once and replayed when the matching payment appears.</span></li>
+    <li lang="es"><strong>Los proveedores de pago repiten notificaciones, a veces antes de que exista el cobro.</strong><span>Cada evento se guarda, se aplica una sola vez y se reprocesa cuando aparece el pago.</span></li>
+    <li lang="en"><strong>A retried checkout must not charge twice.</strong><span>The checkout keeps one attempt key through network failures and stops instead of silently creating a new charge.</span></li>
+    <li lang="es"><strong>Repetir un checkout no debe cobrar dos veces.</strong><span>El checkout mantiene una única clave de intento ante fallos de red y se detiene en vez de crear otro cobro.</span></li>
+    <li lang="en"><strong>Tenant isolation should not depend on remembering a WHERE clause.</strong><span>PostgreSQL row-level security makes the database itself refuse another company's rows.</span></li>
+    <li lang="es"><strong>El aislamiento entre empresas no debería depender de acordarse de un WHERE.</strong><span>Con row-level security de PostgreSQL, la propia base de datos rechaza las filas de otra empresa.</span></li>
+  </ul>
+</section>
+
+<section id="skills">
+  <h2 lang="en">Skills</h2><h2 lang="es">Competencias</h2>
+  <div class="skills">
+    <div><h3>Backend</h3><p>PHP/Laravel, Python/FastAPI, Go, REST APIs, authorization, transactions</p></div>
+    <div><h3 lang="en">Data</h3><h3 lang="es">Datos</h3><p>PostgreSQL (RLS, advisory locks), MySQL, SQLite, SQLAlchemy, Alembic, pgx</p></div>
+    <div><h3>Frontend</h3><p>React, TypeScript, Next.js, Livewire, Tailwind, HTML/CSS</p></div>
+    <div><h3 lang="en">Integrations</h3><h3 lang="es">Integraciones</h3><p>Asaas payments, Melhor Envio shipping, WhatsApp Cloud API, webhooks</p></div>
+    <div><h3 lang="en">Testing</h3><h3 lang="es">Pruebas</h3><p>PHPUnit, pytest, Playwright, JavaScript test runners, GitHub Actions</p></div>
+    <div><h3 lang="en">Delivery</h3><h3 lang="es">Despliegue</h3><p>Docker Compose, Linux VPS, Nginx/Apache, queues, release and rollback scripts</p></div>
+  </div>
+  <p class="lead" style="margin-top:16px"><a href="https://github.com/LercZin/portfolio/blob/main/docs/engineering-map.md"><span lang="en">Engineering map</span><span lang="es">Mapa técnico</span></a> · <a href="https://github.com/LercZin/portfolio/blob/main/docs/engineering-evidence.md"><span lang="en">Technical evidence</span><span lang="es">Evidencia técnica</span></a></p>
+</section>
+
+<section id="about">
+  <h2 lang="en">About me</h2><h2 lang="es">Sobre mí</h2>
+  <p class="lead" lang="en">Before and alongside software, I worked in furniture assembly, in-store and online sales, and marketing. My projects start from how the work is actually done: I have done the selling and the assembly myself.</p>
+  <p class="lead" lang="es">Antes y a la vez que el software, trabajé en montaje de muebles, ventas en tienda y online, y marketing. Mis proyectos parten de cómo se hace el trabajo de verdad: he vendido y montado los muebles yo mismo.</p>
+  <div class="facts">
+    <div><b lang="en">Education</b><b lang="es">Formación</b><span lang="en">Computer Science, Anhanguera · graduating Dec 2026</span><span lang="es">Ciencias de la Computación, Anhanguera · me gradúo en dic. 2026</span></div>
+    <div><b lang="en">Languages</b><b lang="es">Idiomas</b><span lang="en">Portuguese (native), English and Spanish (intermediate)</span><span lang="es">Portugués (nativo), español e inglés (intermedio)</span></div>
+    <div><b lang="en">Location</b><b lang="es">Ubicación</b><span lang="en">São Luís, Brazil · open to relocating to Spain with employer-sponsored work permit</span><span lang="es">São Luís, Brasil · dispuesto a trasladarme a España con permiso de trabajo tramitado por la empresa</span></div>
+    <div><b lang="en">Looking for</b><b lang="es">Busco</b><span lang="en">Software developer, full-stack, Laravel backend or React/TypeScript roles</span><span lang="es">Puestos de desarrollador, full stack, backend Laravel o React/TypeScript</span></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p><a href="mailto:lercsz1472@gmail.com">lercsz1472@gmail.com</a> · <a href="https://github.com/LercZin">github.com/LercZin</a></p>
+  <p lang="en">No revenue, traffic or performance figures appear here because I have not measured them.</p>
+  <p lang="es">No aparecen cifras de facturación, tráfico o rendimiento porque no las he medido.</p>
+</footer>
+</div>
+<script>
+(function(){
+  var root=document.documentElement;
+  function store(k,v){try{v===undefined?v=localStorage.getItem(k):localStorage.setItem(k,v)}catch(e){v=null}return v}
+  function setLang(l){root.dataset.lang=l;root.lang=l;
+    document.querySelectorAll('[data-set-lang]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.setLang===l))});}
+  var q=new URLSearchParams(location.search).get('lang');
+  var saved=store('lang');
+  setLang(q==='es'||q==='en'?q:saved||((navigator.language||'').slice(0,2)==='es'?'es':'en'));
+  document.querySelectorAll('[data-set-lang]').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.setLang);store('lang',b.dataset.setLang)})});
+  var t=store('theme');if(t)root.dataset.theme=t;
+  document.getElementById('theme').addEventListener('click',function(){
+    var dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme=dark?'light':'dark';store('theme',root.dataset.theme)});
+})();
+</script>
+</body>
+</html>

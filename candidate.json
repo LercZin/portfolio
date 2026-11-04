@@ -1,8 +1,8 @@
 {
   "schemaVersion": "1.0",
-  "updatedAt": "2026-11-01",
+  "updatedAt": "2026-11-04",
   "name": "Lucas Emanuel Ramos Carvalho",
-  "headline": "Software Developer — Business Systems, Integrations & Infrastructure",
+  "headline": "Full-Stack Developer — Business Systems, Integrations & Data",
   "email": "lercsz1472@gmail.com",
   "location": {
     "city": "São Luís",
@@ -10,7 +10,8 @@
   },
   "profiles": {
     "github": "https://github.com/LercZin",
-    "portfolio": "https://github.com/LercZin/portfolio"
+    "portfolio": "https://github.com/LercZin/portfolio",
+    "website": "https://lerczin.github.io/portfolio/"
   },
   "targetRoles": [
     "Software Developer",
@@ -18,7 +19,7 @@
     "PHP/Laravel Backend Developer",
     "React/TypeScript Frontend Developer"
   ],
-  "summary": "Develops applications connecting sales, inventory, payments and delivery operations across interfaces, backend rules, databases, integrations and deployment.",
+  "summary": "Builds the software behind a business — selling, stock, payments and delivery — from requirements and interfaces to backend rules, databases, integrations and deployment.",
   "education": [
     {
       "institution": "Anhanguera",
@@ -70,7 +71,8 @@
         "viure",
         "retail-operations-demo",
         "unibot",
-        "postgres-outbox-lab"
+        "postgres-outbox-lab",
+        "cerebro"
       ]
     },
     {
@@ -297,6 +299,35 @@
         "HTTP integration"
       ],
       "verification": "See repository docs/verification.md for automated checks and local browser walkthrough; scanner input is simulated, no physical hardware test."
+    },
+    {
+      "id": "cerebro",
+      "name": "Cérebro",
+      "participation": "lead_development",
+      "started": "2026-11",
+      "status": "in_development",
+      "sourceVisibility": "private",
+      "caseStudy": "https://github.com/LercZin/portfolio/blob/main/case-studies/cerebro.md",
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "SQLAlchemy",
+        "PostgreSQL",
+        "Alembic",
+        "Redis",
+        "Taskiq",
+        "React",
+        "TypeScript",
+        "Docker Compose"
+      ],
+      "domains": [
+        "multi-tenant SaaS",
+        "row-level security",
+        "panel authentication and MFA",
+        "WhatsApp Cloud API webhook",
+        "spreadsheet import"
+      ],
+      "verification": "Private source; case study lists what is built and what is not. The AI agent itself is not built yet."
     },
     {
       "id": "pinheiro-moveis",
