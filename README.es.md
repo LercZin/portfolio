@@ -1,50 +1,65 @@
-# Lucas Emanuel Ramos Carvalho · Portafolio de software
+# Lucas Emanuel Ramos Carvalho
 
-**Desarrollo full stack, sistemas de gestión e integraciones**  
-PHP / Laravel · Python / FastAPI · Go · React / TypeScript  
-PostgreSQL · MySQL · APIs REST · Linux
+**Desarrollador full stack · sistemas de gestión, integraciones y datos**  
+PHP / Laravel · Python / FastAPI · Go · React / TypeScript · PostgreSQL · MySQL · Linux
 
-Desarrollo aplicaciones que conectan **ventas, inventario, pagos y operaciones de entrega**. Mi trabajo abarca requisitos, interfaces, backend, bases de datos, integraciones y despliegue. Mi experiencia práctica en ventas, montaje de muebles y marketing me ayuda a comprender las necesidades del negocio y de sus usuarios.
+Desarrollo el software que sostiene un negocio: **vender, controlar el inventario, cobrar y cumplir con las entregas**. Llevo una funcionalidad desde la conversación con quien la usa hasta la pantalla, las reglas del backend, la base de datos, las integraciones externas y el despliegue.
 
-[Contacto](mailto:lercsz1472@gmail.com) · [GitHub](https://github.com/LercZin) · [English](README.md) · [Evidencia técnica](docs/engineering-evidence.md)
+[Web](https://lerczin.github.io/portfolio/) · [Correo](mailto:lercsz1472@gmail.com) · [GitHub](https://github.com/LercZin) · [English](README.md)
 
-## Proyectos seleccionados
+## Proyectos
 
-| Proyecto | Mi participación | Tecnologías y problemas técnicos |
-| --- | --- | --- |
-| [**Retail Operations Demo**](https://github.com/LercZin/retail-operations-demo) | Demostración ejecutable creada en noviembre de 2026 con tiendas y cuentas ficticias. | Laravel, React/TypeScript, inventario transaccional, pedidos idempotentes y adaptador Go con pruebas y CI. |
-| [**Pinheiro Móveis**](case-studies/pinheiro-moveis.md) | Desarrollo independiente de un sistema de gestión para tiendas de muebles. | Laravel, Livewire, MySQL; aislamiento por tienda, inventario, pagos a plazos y entregas. |
-| [**Viure Maranhão**](case-studies/viure.md) | Desarrollo independiente de la experiencia de comercio, APIs e integraciones. | Next.js, React, TypeScript, Laravel; autenticación, webhooks de pago, recuperación del checkout y envíos. |
-| [**UniBot**](https://github.com/LercZin/unibot) | Implementación completa de la aplicación dentro de un equipo académico; créditos conservados. | Python, FastAPI, MySQL, JavaScript; clasificación de intenciones, servicios y pruebas automatizadas. |
+| Proyecto | Qué hace | Mi papel · tecnologías | Ver |
+| --- | --- | --- | --- |
+| **Pinheiro Móveis** | Gestiona una cadena de tiendas de muebles: ventas, inventario, pagos a plazos, entrega y montaje. | Único desarrollador desde 2022 · Laravel, Livewire, MySQL | [Caso de estudio](case-studies/pinheiro-moveis.md) · [Web](https://pinheiromoveis.com) |
+| **Viure Maranhão** | Tienda online con acceso de usuarios, checkout, webhooks de pago y cálculo de envíos. | Único desarrollador desde 2022 · Next.js, React, TypeScript, Laravel, MySQL | [Caso de estudio](case-studies/viure.md) · [Web](https://viuremaranhao.com.br) |
+| **Cérebro** | Plataforma multiempresa de atención al cliente con IA por WhatsApp, aislada por empresa en PostgreSQL. | Desarrollador principal, en curso · FastAPI, PostgreSQL RLS, Redis, React | [Caso de estudio](case-studies/cerebro.md) |
+| **Retail Operations Demo** | Versión pública y ejecutable de los problemas de comercio anteriores, con tiendas ficticias. | Único desarrollador · Laravel, React/TypeScript, Go, MySQL/SQLite | [Código](https://github.com/LercZin/retail-operations-demo) · [Verificación](https://github.com/LercZin/retail-operations-demo/blob/main/docs/verification.md) |
+| **UniBot** | Asistente para un portal de estudiantes: datos académicos, preguntas frecuentes y chat con IA opcional. | Implementé la aplicación en un equipo académico · FastAPI, MySQL, JavaScript | [Código](https://github.com/LercZin/unibot) · [CI](https://github.com/LercZin/unibot/actions/workflows/tests.yml) |
 
-Pinheiro Móveis y Viure comenzaron en 2022 y han seguido evolucionando. El código comercial permanece privado. Implementé toda la aplicación UniBot dentro de un equipo académico; se conservan los créditos de sus tres integrantes. El adaptador Go simula entrada de un lector; no se afirma validación de hardware físico.
+Los proyectos comerciales son privados: sus casos de estudio explican las decisiones y las pruebas en lugar de mostrar el código. Los repositorios públicos se pueden clonar y ejecutar.
 
 ## Laboratorios de ingeniería
 
-Tres referencias ejecutables creadas en noviembre de 2026 con datos ficticios:
+Proyectos pequeños con datos ficticios, cada uno centrado en un problema fácil de resolver mal.
 
-- [**PostgreSQL Outbox Lab**](https://github.com/LercZin/postgres-outbox-lab): Go/pgx, transacciones, workers concurrentes, reintentos y entregas duplicadas.
-- [**Pathfinding Lab**](https://github.com/LercZin/pathfinding-lab): TypeScript, A*/Dijkstra, costes de terreno y visualización interactiva.
-- [**Data Reconciliation Lab**](https://github.com/LercZin/data-reconciliation-lab): Python/SQL, validación CSV, cuarentena, importación idempotente e informes de conciliación.
+| Laboratorio | Problema | Ver |
+| --- | --- | --- |
+| **PostgreSQL Outbox** | Workers en Go/pgx que reclaman tareas en paralelo y sobreviven a caídas y entregas duplicadas. | [Código](https://github.com/LercZin/postgres-outbox-lab) |
+| **Pathfinding** | A* y Dijkstra sobre cuadrículas con pesos en TypeScript, con reproducción paso a paso. | [Código](https://github.com/LercZin/pathfinding-lab) · [Demo](https://lerczin.github.io/pathfinding-lab/) |
+| **Data Reconciliation** | Importación en Python/SQL que pone en cuarentena las filas inválidas, se puede repetir sin riesgo y explica cada diferencia. | [Código](https://github.com/LercZin/data-reconciliation-lab) |
 
-El [mapa técnico](docs/engineering-map.md) documenta ejemplos revisados de PostgreSQL/SQLAlchemy, IA local, sistemas financieros, Godot y despliegue Linux. Cada repositorio público contiene instrucciones y alcance de verificación.
+## Problemas que he resuelto
+
+- **Una tienda nunca debe ver los datos de otra.** En Pinheiro Móveis el ámbito de la tienda se aplica en el servidor, en cada consulta y al crear registros, con pruebas que intentan leer por ID un cliente de otra tienda.
+- **Un recuento de inventario que falla a mitad no puede dejar medio inventario ajustado.** Todo el recuento va en una transacción con bloqueo de filas y se rechaza si el saldo cambió desde que empezó.
+- **Los proveedores de pago envían la misma notificación varias veces, a veces antes de que exista el cobro.** Viure guarda cada evento, lo aplica una sola vez y lo reprocesa cuando aparece el pago correspondiente.
+- **Repetir un checkout no debe cobrar dos veces.** El checkout mantiene una única clave de intento ante fallos de red y se detiene en vez de crear un cobro nuevo sin avisar.
+- **El aislamiento entre empresas no debería depender de acordarse de un `WHERE`.** Cérebro usa row-level security de PostgreSQL: la propia base de datos rechaza las filas de otra empresa.
 
 ## Competencias
 
-- Backend con PHP/Laravel, Python/FastAPI y Go; APIs REST, PostgreSQL/MySQL, autorización y transacciones.
-- Frontend con React, TypeScript, Next.js, Livewire, HTML y CSS.
-- Integraciones de pagos y envíos, con procesamiento idempotente de webhooks.
-- Pruebas con PHPUnit, Playwright, pytest y JavaScript según el proyecto.
-- Git, entornos VPS Linux y despliegue. Experiencia declarada en integración de hardware y software. Adaptador público en Go para consultar inventario en la demostración.
+| Área | Tecnologías | Dónde |
+| --- | --- | --- |
+| Backend | PHP/Laravel, Python/FastAPI, Go, APIs REST, autorización, transacciones | Todos los proyectos |
+| Datos | PostgreSQL (RLS, advisory locks), MySQL, SQLite, SQLAlchemy, Alembic, pgx | Cérebro, laboratorios, sistemas de gestión |
+| Frontend | React, TypeScript, Next.js, Livewire, Tailwind, HTML/CSS | Viure, Cérebro, Pinheiro Móveis |
+| Integraciones | Pagos Asaas, envíos Melhor Envio, WhatsApp Cloud API, webhooks | Viure, Pinheiro Móveis, Cérebro |
+| Pruebas | PHPUnit, pytest, Playwright, runners de pruebas JavaScript, CI en GitHub Actions | Todos los repositorios públicos |
+| Despliegue | Git, Docker Compose, VPS Linux, Nginx/Apache, colas, scripts de release y rollback | Sistemas de gestión, Cérebro |
 
-La [guía de evidencia](docs/engineering-evidence.md) permite revisar ejemplos concretos. UniBot dispone de **75 pruebas Python y 11 JavaScript** ejecutadas en CI; estas pruebas no equivalen a una certificación de producción ni a pruebas completas de integración.
+Más detalle (en inglés): [mapa técnico](docs/engineering-map.md) (áreas → código) y [evidencia técnica](docs/engineering-evidence.md) (pruebas y ejecuciones de CI).
 
-## Disponibilidad
+## Sobre mí
 
-Busco oportunidades como **Software Developer, Full-Stack Developer, Backend PHP/Laravel o Frontend React/TypeScript**.
+Antes y a la vez que el software, trabajé en **montaje de muebles, ventas en tienda y online, y marketing**. Por eso mis proyectos parten de cómo se hace el trabajo de verdad: he vendido y montado los muebles yo mismo.
 
-Resido en **São Luís, Brasil**. Estoy abierto a trasladarme a España y actualmente necesito que el empleador tramite la autorización de trabajo correspondiente. Estoy disponible para entrevistas por videollamada y evaluaciones técnicas.
+Empecé Pinheiro Móveis y Viure en **2022**, mientras estudiaba Ciencias de la Computación en **Anhanguera**; me gradúo en **diciembre de 2026**.
 
-**Formación:** Ciencias de la Computación, Anhanguera; inicio en 2022 y finalización prevista en diciembre de 2026.  
-**Idiomas:** portugués nativo, español intermedio e inglés intermedio.  
-**Correo profesional:** [lercsz1472@gmail.com](mailto:lercsz1472@gmail.com)
+- **Idiomas:** portugués (nativo), español e inglés (intermedio).
+- **Ubicación:** São Luís, Brasil. Dispuesto a trasladarme a España (necesito que la empresa tramite el permiso de trabajo). Disponible para entrevistas por videollamada y pruebas técnicas.
+- **Busco:** puestos de desarrollador de software, full stack, backend Laravel o React/TypeScript.
+
+**Contacto:** [lercsz1472@gmail.com](mailto:lercsz1472@gmail.com) · perfil estructurado: [`candidate.json`](candidate.json)
+
+<sub>No aparecen cifras de facturación, tráfico o rendimiento porque no las he medido. Las pruebas privadas se describen a partir de su código; los repositorios públicos enlazan a sus ejecuciones de CI.</sub>

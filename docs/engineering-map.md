@@ -2,68 +2,57 @@
 
 **Business software, data, integrations, algorithms and deployment**
 
-This map connects technical areas to concrete code. Public labs are small, runnable references created in November 2026. Private examples were reviewed through manifests, domain code and selected tests; those application suites were not executed in this review.
+This page connects each technical area to code I can walk you through. The public repositories run on your machine; the private ones are described by file and behavior, without publishing their source.
 
 ## Public code to run
 
-| Area | Project | Questions the implementation should answer |
+| Area | Project | Questions the code answers |
 | --- | --- | --- |
 | Go and PostgreSQL | [Transactional outbox](https://github.com/LercZin/postgres-outbox-lab) | How do concurrent workers claim jobs? What happens after a crash or a duplicate delivery? |
 | Algorithms and TypeScript | [Pathfinding lab](https://github.com/LercZin/pathfinding-lab) | Do A* and Dijkstra find the same optimal cost? How do weights and blocked cells change the search? |
 | Python, SQL and data quality | [Data reconciliation](https://github.com/LercZin/data-reconciliation-lab) | How are invalid rows quarantined, imports repeated and unmatched records explained? |
 | PHP and full-stack workflows | [Retail operations](https://github.com/LercZin/retail-operations-demo) | How are store isolation, stock consistency and uncertain HTTP retries handled? |
-| Python API and browser integration | [UniBot](https://github.com/LercZin/unibot) | Are conversation reads/writes owner-scoped, and does the widget call the correct endpoint? |
+| Python API and browser integration | [UniBot](https://github.com/LercZin/unibot) | Are conversation reads and writes owner-scoped, and does the widget call the right endpoint? |
 
-Each repository documents its commands, verification and boundaries. Labs use fictional data and contain no commercial application source.
+Each repository documents how to run it, what its tests cover and what it does not do.
 
-## Broader implementation examples
+## Private projects
 
-| Area | Reviewed project | Concrete implementation |
+| Area | Project | What I implemented |
 | --- | --- | --- |
-| PostgreSQL | Local operations/analytics application | SQLAlchemy models and Alembic; connection validation requires PostgreSQL; account-scoped synchronization uses an advisory transaction lock and row updates. |
-| Python and external APIs | Local operations/analytics application; Controlly | FastAPI services, HTTPX transports, synchronization/reconciliation and sales/route operations. |
-| Local AI integration | Local operations/analytics application | Ollama requests validated against a schema; loopback-only endpoint, response limit, timeout and bounded concurrency. |
-| Go | Boleto API contribution | pgx persistence, REST handlers, integer-cent values, transactional writes and FEBRABAN formatting; payment confirmation is simulated. |
-| Exact financial state | SistemaFinanceiro | Brick Math decimal values, operation keys and request hashes, workspace-scoped row locks and atomic obligation settlement. |
-| Identity and access | SistemaFinanceiro; retail and commerce projects | Workspace policies, revocation, version checks, second-factor verification and scoped business mutations. |
-| Games and algorithms | Emberfall offline prototype | Godot/GDScript cardinal pathfinding, deterministic tie-breaking, versioned saves and compensating inventory transfers. |
-| Node.js APIs and SQL | Financial backend | Express/MySQL, transaction-wrapped period closing, inventory movements and PDF/spreadsheet report generation. |
-| Scheduling | Salon and clinic systems | Availability by professional/resources, conflicting room/equipment checks, transactions and optimistic version handling. |
-| Frontend | Viure, Controlly and business systems | React/TypeScript, static Next.js commerce, Inertia applications, stateful forms and browser API integration. |
-| Static publishing | Dal Cotone presentation site | Node-generated HTML/CSS/JS, shared catalog data, progressive interactions, local media and link/behavior checks. |
+| Multi-tenant SaaS | [Cérebro](../case-studies/cerebro.md) | FastAPI, PostgreSQL row-level security per company, panel sign-in with MFA, WhatsApp Cloud API webhook, spreadsheet import with quarantine. |
+| PostgreSQL | Operations and analytics application | SQLAlchemy and Alembic on PostgreSQL only; account-scoped synchronization under an advisory transaction lock. |
+| Python and external APIs | Operations application; Controlly | FastAPI services, HTTPX clients, synchronization, reconciliation and sales/route operations. |
+| Local AI | Operations application | Ollama calls validated against a schema, loopback-only endpoint, response size limit, timeout and bounded concurrency. |
+| Exact money | SistemaFinanceiro | Decimal values, operation keys with request hashes, workspace row locks and atomic settlement of obligations. |
+| Identity and access | SistemaFinanceiro; retail and commerce projects | Workspace policies, session revocation, version checks, second factor and scoped business changes. |
+| Go | Boleto API (contribution) | pgx persistence, REST handlers, integer cents, transactional writes and FEBRABAN formatting; payment confirmation simulated. |
+| Node.js and SQL | Financial backend | Express/MySQL, period closing inside a transaction, inventory movements, PDF and spreadsheet reports. |
+| Scheduling | Salon and clinic systems | Availability per professional and resource, room/equipment conflict checks, optimistic versioning. |
+| Games | Emberfall (offline prototype) | Godot/GDScript four-direction pathfinding with deterministic tie-breaking, versioned saves, compensating inventory transfers. |
+| Frontend | Viure, Controlly, business systems | React/TypeScript, static Next.js commerce, Inertia applications, stateful forms. |
+| Static publishing | Dal Cotone presentation site | Node-generated HTML/CSS/JS from shared catalog data, progressive interactions and link checks. |
 
 ### PostgreSQL and local inference
 
-In the operations application, `backend/app/database.py` restricts the database backend to PostgreSQL. `backend/app/store_sync.py` wraps incremental synchronization in a transaction with a PostgreSQL advisory lock. `backend/app/models.py` contains account-scoped domain records and durable publication-job models.
-
-`backend/app/local_ai.py` implements bounded Ollama inference: local endpoint validation, explicit HTTP limits, schema-bound output and handling for insufficient evidence. This source review did not call the Meta API, load an actual local model or publish an advertisement.
-
-The Cérebro and SelfAudit codebases also configure PostgreSQL and their database containers were observed running. Their inspected application code was at a foundation stage; planned AI tools, tenant RLS and Android collection are not treated as completed features.
+In the operations application, `backend/app/database.py` refuses any database other than PostgreSQL. `backend/app/store_sync.py` runs incremental synchronization in one transaction under a PostgreSQL advisory lock, so two syncs for the same account cannot interleave. `backend/app/local_ai.py` calls a local Ollama model with explicit HTTP limits, validates the answer against a schema and returns "not enough evidence" instead of guessing.
 
 ### Financial consistency
 
-SistemaFinanceiro separates identity, workspaces, accounts, ledger and planning modules. `app/Modules/Ledger/Values/Money.php` uses decimal arithmetic and explicit bounds. `PostJournal.php` checks an operation key and request hash; `SettleObligation.php` coordinates version checks and journal effects within a transaction.
-
-`LockFinancialWorkspace.php` locks the authorization context before a financial mutation. The reviewed tests include injected failures and rollback assertions. These mechanisms are code-review evidence, not accounting certification or a claim of measured production reliability.
+SistemaFinanceiro separates identity, workspaces, accounts, ledger and planning modules. `Money.php` uses decimal arithmetic with explicit bounds. `PostJournal.php` checks an operation key and a request hash, so a retry is not posted twice and a key reused with a different payload is detected. `SettleObligation.php` checks versions and writes the journal entries in one transaction, and `LockFinancialWorkspace.php` locks the workspace before any financial change. The tests inject failures and assert the rollback.
 
 ### Game state and recovery
 
-The Godot prototype separates movement, combat, services, UI and persistence. `scripts/world/cardinal_pathfinder.gd` handles four-direction movement and deterministic path selection. `scripts/persistence/progression_store.gd` uses a versioned snapshot, temporary write and backup recovery path. `scripts/services/bank_service.gd` guards transaction intent and compensates a failed receiving mutation.
-
-The inspected runtime is an offline prototype. Multiplayer authority, Nakama and PostgreSQL were future plans in that project. No online MMO or anti-cheat capability is inferred from local persistence.
+The Godot prototype separates movement, combat, services, UI and persistence. `cardinal_pathfinder.gd` picks paths deterministically. `progression_store.gd` writes a versioned snapshot to a temporary file and keeps a backup to recover from. `bank_service.gd` compensates when the receiving side of a transfer fails. Multiplayer was planned, not built.
 
 ## Infrastructure
 
-Read-only inspection of two existing Linux hosts on November 1, 2026 corroborated Ubuntu/AlmaLinux environments, Docker, PostgreSQL, Redis, MySQL, Nginx, Apache/cPanel and application queue processes. This was an inventory, not a production modification or a general health certification.
+I operate Linux servers (Ubuntu and AlmaLinux) running Docker, PostgreSQL, Redis, MySQL, Nginx, Apache/cPanel and application queue workers.
 
-Versioned deployment code in the business projects includes immutable release preparation, checksums, symlink activation, rollback, queue restart and backup metadata. Deployment permissions and recovery boundaries remain project-specific. Server addresses, account configuration, database records and credentials are excluded from this public map.
+The deployment scripts in the business projects prepare immutable releases, verify checksums, switch the active release with a symlink, restart queues, record backup metadata and roll back to the previous release. Server addresses, accounts and credentials stay out of this repository.
 
-## Authorship and scope
+## Authorship
 
-Lucas confirms independent implementation of Pinheiro Móveis and Viure, and complete UniBot application implementation within its academic team. Original academic credits remain. The broader table identifies reviewed code and interview topics; it does not invent employers, years, team responsibilities or business results.
+I developed Pinheiro Móveis, Viure and the public labs on my own, and implemented the UniBot application within an academic team whose credits are preserved in that repository. The Boleto API is listed as a contribution. I also have hands-on hardware/software integration experience; the inspectable part is the Go stock reader in the retail demo, which reads simulated scanner input.
 
-The existing Go checkout has commits attributed to `LercZin` while its module/origin use another account namespace. It is described as contribution evidence rather than sole authorship. The new public Go labs have their own source and verification record.
-
-Hardware experience remains self-reported. Thermal PDF generation, TEF adapters and simulated scanner input are distinguished from physical-device validation or payment-provider homologation.
-
-[Portfolio](../README.md) · [Executed public checks](engineering-evidence.md)
+[Portfolio](../README.md) · [Technical evidence](engineering-evidence.md)
